@@ -54,15 +54,6 @@ input.onButtonPressed(Button.B, function () {
             # . . # .
             # # # # .
             `)
-    }
-    if (rhythm == 4) {
-        basic.showLeds(`
-            . . . . .
-            . . . . .
-            # # # # .
-            # . . # .
-            # # # # .
-            `)
     } else if (rhythm == 2) {
         basic.showLeds(`
             . . # . .
@@ -78,6 +69,14 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onGesture(Gesture.Shake, function () {
+    basic.showIcon(IconNames.Heart)
+    music.playTone(note1, rhythm1)
+    music.playTone(note2, rhythm2)
+    music.playTone(note3, rhythm3)
+    music.playTone(note4, rhythm4)
+    music.playTone(note5, rhythm5)
+})
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     note1 = 131
     note2 = 131
     note3 = 131
@@ -90,14 +89,6 @@ input.onGesture(Gesture.Shake, function () {
     rhythm5 = 4
     basic.showString("RESET")
     num = 1
-})
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    basic.showIcon(IconNames.Heart)
-    music.playTone(note1, rhythm1)
-    music.playTone(note2, rhythm2)
-    music.playTone(note3, rhythm3)
-    music.playTone(note4, rhythm4)
-    music.playTone(note5, rhythm5)
 })
 let rhythm5 = 0
 let note5 = 0
@@ -144,5 +135,5 @@ music.playTone(523, music.beat(BeatFraction.Half))
 music.setTempo(120)
 note = 131
 num = 1
-basic.showNumber(num)
 rhythm = 4
+basic.showNumber(num)
